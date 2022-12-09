@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/ZxyongYo/border-radius-previewer"
   },
-  "homepage": "",
+  "homepage": "https://zxyongyo.github.io/border-radius-previewer",
   "devDependencies": {
     "sass": "^1.56.1",
     "typescript": "^4.6.4",

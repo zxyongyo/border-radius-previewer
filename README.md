@@ -4,12 +4,12 @@ The border-radius property can have multiple values changed. Preview how the sha
 
 ## Features
 
-- [x] User can see a box which has a `border-radius` property applied to it
+- [x] You can see a box which has a `border-radius` property applied to it
 
-- [x] User can customize the box size
+- [x] You can customize the box size
 
-- [x] User can change the 4 `border-raidus` property values that are applied to the box (top-left, top-right, bottom-left, bottom-right)
+- [x] You can change the 4 `border-raidus` property values that are applied to the box (top-left, top-right, bottom-left, bottom-right)
 
-- [ ] User can change all 8 possible values of the border-radius in order to create a complex shape
+- [ ] You can change all 8 possible values of the border-radius in order to create a complex shape
 
-- [x] User can copy the resulting CSS to the clipboard
+- [x] You can copy the resulting CSS to the clipboard
