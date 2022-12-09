@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Border Radius Previewer</title>
+  <!-- <link href="https://fonts.sourcegcdn.com/css?family=M+PLUS+Rounded+1c:400,800|Ubuntu+Mono" rel="stylesheet"> -->
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h3>Border Radius Previewer</h3>
+      <div class="links">
+        <a href="https://github.com/ZxyongYo/demos/tree/master/border-radius-previewer" target="_blank">
+          <img src="/github.svg">
+          View on GitHub
+        </a>
+        <a href="full-control.html">
+          <img src="/8.svg">
+          Full-Control
+        </a>
+      </div>
+    </header>
+
+    <div class="generator" id="box">
+      <div class="shape" id="shape">
+        <span class="handle" id="top"></span>
+        <span class="handle" id="right"></span>
+        <span class="handle" id="bottom"></span>
+        <span class="handle" id="left"></span>
+      </div>
+    </div>
+
+    <div class="settings">
+      <div class="output">
+        <div class="label">border-radius:</div>
+        <div class="input-group">
+          <div class="value" id="code">30% 70% 70% 30% / 30% 30% 70% 70%</div>
+          <button id="copy">COPY</button>
+        </div>
+      </div>
+      <div class="size">
+        <div class="label">Custom size:</div>
+        <div class="wrapper">
+          <div class="input-group">
+            <label for="width">width:</label>
+            <input id="width" type="number" >
+          </div>
+          <div class="input-group">
+            <label for="height">height:</label>
+            <input id="height" type="number" >
+          </div>
+          <button id="reset" >RESET</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="message-box" id="message-box">
+      <div id="message">Copied success! 👌</div>
+    </div>
+
+  </div>
+
+  <script type="module" src="src/ts/index.ts"></script>
+</body>
+</html>

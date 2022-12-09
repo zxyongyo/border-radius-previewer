@@ -1,0 +1,138 @@
+.generator {
+  position: relative;
+  z-index: 3;
+  margin: 20px auto;
+  padding: 8px;
+  width: 50vmin;
+  height: 50vmin;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  .shape {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #3023ae 0%, #ff0099 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: -10vmin 10vmin 0 rgba(255, 255, 255, .07);
+
+    &.full-control {
+      border-radius: 10% 10% 10% 10% / 10% 10% 10% 10%;
+      background: linear-gradient(
+          -225deg,
+          #ffffff 0%,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(0, 255, 255, 0) 60%,
+          #0ff 100%
+        ),
+        linear-gradient(45deg, #3023ae 0%, #ff0099 100%);
+    }
+  }
+  .handle {
+    display: block;
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+
+    &#top {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, calc(-50% - 10px));
+    }
+    &#right {
+      top: 0;
+      left: 100%;
+      transform: translate(calc(-50% + 10px), -50%);
+    }
+    &#bottom {
+      top: 100%;
+      left: 100%;
+      transform: translate(-50%, calc(-50% + 10px));
+    }
+    &#left {
+      top: 100%;
+      left: 0;
+      transform: translate(calc(-50% - 10px), -50%);
+    }
+
+    &#topX {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, calc(-50% - 10px));
+    }
+    &#topY {
+      top: 0;
+      left: 0;
+      transform: translate(calc(-50% - 10px), -50%);
+    }
+    &#rightX {
+      top: 0;
+      left: 100%;
+      transform: translate(-50%, calc(-50% - 10px));
+    }
+    &#rightY {
+      top: 0;
+      left: 100%;
+      transform: translate(calc(-50% + 10px), -50%);
+    }
+    &#bottomX {
+      top: 100%;
+      left: 100%;
+      transform: translate(-50%, calc(-50% + 10px));
+    }
+    &#bottomY {
+      top: 100%;
+      left: 100%;
+      transform: translate(calc(-50% + 10px), -50%);
+    }
+    &#leftX {
+      top: 100%;
+      left: 0;
+      transform: translate(-50%, calc(-50% + 10px));
+    }
+    &#leftY {
+      top: 100%;
+      left: 0;
+      transform: translate(calc(-50% - 10px), -50%);
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: scale(0.4);
+      border: 2px solid #002;
+      border-radius: 50%;
+      background: white;
+    }
+    &.right::after {
+      background: #ff0099;
+    }
+    &.bottom::after {
+      background: #0ff;
+    }
+    &.left::after {
+      background: #3023ae;
+    }
+    &:not(.v8){
+      &.active,
+      &:hover{
+        &::after {
+          background: #ff0099;
+          box-shadow: 0 0 0 0.75rem white;
+        }
+      }
+    }
+    &.v8{
+      &.active,
+      &:hover{
+        &::after {
+          box-shadow: 0 0 0 0.75rem white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    margin: 0;
+    text-transform: uppercase;
+    color: #fffc;
+    font-size: 2.2rem;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    min-width: 20rem;
+    border-top: 1px solid #fffc;
+    a {
+      padding: 0 20px;
+      opacity: 0.9;
+      color: #f09;
+      font-size: 0.9rem;
+      text-decoration: none;
+      &:hover {
+        opacity: 1;
+      }
+      img {
+        display: inline-block;
+        width: 1.35rem;
+        height: 1.35rem;
+        vertical-align: -0.32rem;
+      }
+    }
+  }
+}

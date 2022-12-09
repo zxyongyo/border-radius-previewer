@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-evenly;
+  position: relative;
+  padding-bottom: 20px;
+  min-height: 100vh;
+  overflow: hidden;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -20vmin;
+    left: -20vmin;
+    z-index: 1;
+    /* @see: https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units
+      vmax: 视窗较大尺寸的1%
+      vmin: 视窗较小尺寸的1% */
+    width: 70vmax;
+    height: 70vmax;
+    background: rgba(255, 255, 255, 0.07);
+    transform-origin: 55% 55%;
+    animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+    will-change: border-radius, transform;
+    pointer-events: none; // 指定元素在什么情况下可以成为鼠标事件的target
+  }
+  &::after {
+    width: 70vmin;
+    height: 70vmin;
+    left: unset;
+    right: -10vmin;
+    top: unset;
+    bottom: 0;
+    transform-origin: 20% 20%;
+    animation: morph 10s linear infinite alternate,
+      spin 26s linear infinite reverse;
+  }
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30%;
+  }
+  to {
+    border-radius: 40% 60%;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

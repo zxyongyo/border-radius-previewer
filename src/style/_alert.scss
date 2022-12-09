@@ -1,0 +1,20 @@
+.message-box {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  > div {
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translate(-50%, calc(-3rem - 100%));
+    padding: 0.6em 1.6em;
+    background: #e1f3d8;
+    border-radius: 0.3em;
+    opacity: 0;
+    transition: all 0.5s;
+    color: #67c23a;
+    font-size: 1.3rem;
+    font-family: Ubuntu Mono, monospace;
+  }
+}
