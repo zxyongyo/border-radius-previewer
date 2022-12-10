@@ -1,10 +1,10 @@
 import type Movable from "./Movable"
 
 export type State = {
-  top: number
-  right: number
-  bottom: number
-  left: number
+  topX: number
+  rightX: number
+  bottomX: number
+  leftX: number
   topY: number
   rightY: number
   bottomY: number
@@ -12,8 +12,8 @@ export type State = {
   width: string
   height: string
 }
-export type MovalbeElements = Record<string, HTMLElement>
-export type MovableHandles = Record<string, Movable>
+export type MovalbeElements = Partial<Record<Exclude<keyof State, 'width' |'height'>, HTMLElement>>
+export type MovableHandles = Partial<Record<Exclude<keyof State, 'width' |'height'>, Movable>>
 
 export default abstract class AdjustableBox {
   state!: State
@@ -103,12 +103,10 @@ export default abstract class AdjustableBox {
     if (this.timerId) { clearTimeout(this.timerId) }
 
     this.messageEle.innerText = text
-    this.messageEle.style.opacity = '1'
-    this.messageEle.style.transform = 'translate(-50%, 0)'
+    this.messageEle.classList.add('visible')
     
     this.timerId = setTimeout(() => {
-      this.messageEle.style.opacity = '0'
-      this.messageEle.style.transform = 'translate(-50%, calc(-3rem - 100%))'
+      this.messageEle.classList.remove('visible')
     }, duration)
   }
 
@@ -127,14 +125,14 @@ export default abstract class AdjustableBox {
     if (!regex.test(url)) { return undefined }
 
     const paramsToAttribute = [
-      "top",
-      "right",
-      "bottom",
-      "left",
-      "topY",
+      "topX",
       "rightY",
-      "bottomY",
+      "bottomX",
       "leftY",
+      "topY",
+      "rightX",
+      "bottomY",
+      "leftX",
       "width",
       "height"
     ]

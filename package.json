@@ -11,7 +11,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ZxyongYo/border-radius-previewer"
+    "url": "https://github.com/zxyongyo/border-radius-previewer"
   },
   "homepage": "https://zxyongyo.github.io/border-radius-previewer",
   "devDependencies": {

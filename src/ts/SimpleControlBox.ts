@@ -5,10 +5,10 @@ export class SimpleControlBox extends AdjustableBox {
   
   initState(state: State) {
     const defaultState = {
-      top: 30,
-      right: 30,
-      bottom: 30,
-      left: 30,
+      topX: 30,
+      rightY: 30,
+      bottomX: 30,
+      leftY: 30,
       width: this.box.offsetWidth.toFixed(0),
       height: this.box.offsetHeight.toFixed(0)
     }
@@ -17,31 +17,31 @@ export class SimpleControlBox extends AdjustableBox {
 
   initHandles(movalbeElements: MovalbeElements): MovableHandles {
     return {
-      top: new Movable(movalbeElements.top, this.updateState.bind(this), 'x', this.state.top, this.saveStateAsUrlHash.bind(this)),
-      right: new Movable(movalbeElements.right, this.updateState.bind(this), 'y', this.state.right, this.saveStateAsUrlHash.bind(this)),
-      bottom: new Movable(movalbeElements.bottom, this.updateState.bind(this), 'x', this.state.bottom, this.saveStateAsUrlHash.bind(this)),
-      left: new Movable(movalbeElements.left, this.updateState.bind(this), 'y', this.state.left, this.saveStateAsUrlHash.bind(this))
+      topX: new Movable(movalbeElements.topX!, this.updateState.bind(this), 'x', this.state.topX, this.saveStateAsUrlHash.bind(this)),
+      rightY: new Movable(movalbeElements.rightY!, this.updateState.bind(this), 'y', this.state.rightY, this.saveStateAsUrlHash.bind(this)),
+      bottomX: new Movable(movalbeElements.bottomX!, this.updateState.bind(this), 'x', this.state.bottomX, this.saveStateAsUrlHash.bind(this)),
+      leftY: new Movable(movalbeElements.leftY!, this.updateState.bind(this), 'y', this.state.leftY, this.saveStateAsUrlHash.bind(this))
     }
   }
 
   updateBorderRadius() {
-    const {top, right, bottom, left} = this.state
-    const borderRadius = top + '% '
-      + (100 - top) + '% '
-      + (100 - bottom) + '% '
-      + bottom + '% / '
-      + left + '% '
-      + right + '% '
-      + (100 - right) + '% '
-      + (100 - left) + '%'
+    const {topX, rightY, bottomX, leftY} = this.state
+    const borderRadius = topX + '% '
+      + (100 - topX) + '% '
+      + (100 - bottomX) + '% '
+      + bottomX + '% / '
+      + leftY + '% '
+      + rightY + '% '
+      + (100 - rightY) + '% '
+      + (100 - leftY) + '%'
     
     this.shape.style.borderRadius = borderRadius
     this.codeEle.innerText = borderRadius
   }
 
   saveStateAsUrlHash() {
-    const {top, right, bottom, left, width, height} = this.state
-    const hash = `#${top}.${right}.${bottom}.${left}--${width}.${height}`
+    const {topX, rightY, bottomX, leftY, width, height} = this.state
+    const hash = `#${topX}.${rightY}.${bottomX}.${leftY}--${width}.${height}`
     this.setHash(hash)
   }
 
