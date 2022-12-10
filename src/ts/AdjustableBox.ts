@@ -25,7 +25,7 @@ export default abstract class AdjustableBox {
   resetBtn: HTMLElement
   copyBtn: HTMLElement
   messageEle: HTMLElement
-  timerId: number | undefined
+  timerId: NodeJS.Timeout | undefined
 
   constructor({
     state = {} as State,
