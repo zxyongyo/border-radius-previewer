@@ -85,8 +85,7 @@ export default abstract class AdjustableBox {
   }
 
   resetBoxSize() {
-    this.box.style.width = '50vmin'
-    this.box.style.height = '50vmin'
+    this.box.removeAttribute('style')
     this.state.width = this.box.offsetWidth.toFixed(0)
     this.state.height = this.box.offsetHeight.toFixed(0)
     this.widthInput.value = this.state.width
@@ -95,8 +94,12 @@ export default abstract class AdjustableBox {
   }
 
   async handleCopyCode() {
-    await navigator.clipboard.writeText(this.codeEle.innerText)
-    this.showMessage()
+    try {
+      await this.setClipboard(this.codeEle.innerText)
+      this.showMessage()
+    } catch (e) {
+      this.showMessage('Not support!💔')
+    }
   }
 
   showMessage(text = 'Copied success! 👌', duration = 2500) {
@@ -118,6 +121,30 @@ export default abstract class AdjustableBox {
     } else {
       window.location.hash = hash
     }
+  }
+
+  setClipboard(data: string) {
+    return new Promise((resolve, reject) => {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(data)
+          .then(resolve)
+          .catch(reject)
+      } else {
+        try {
+          const textarea = document.createElement('textarea')!
+          textarea.value = data
+          textarea.readOnly = true
+          document.body.appendChild(textarea)
+          textarea.select()
+          textarea.setSelectionRange(0, data.length)
+          document.execCommand('copy')
+          textarea.remove()
+          resolve(data)
+        } catch (e) {
+          reject(e)
+        }
+      }
+    })
   }
 
   static generateInitStateFromUrlHash(url: string) {

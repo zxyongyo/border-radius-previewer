@@ -7,6 +7,9 @@ header {
     text-transform: uppercase;
     color: #fffc;
     font-size: 2.2rem;
+    @media screen and (max-width: 767px) {
+      font-size: 1.5rem;
+    }
   }
   .links {
     display: flex;

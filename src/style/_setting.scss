@@ -31,9 +31,10 @@
         font-size: 1.2rem;
         font-weight: bold;
         appearance: none;
+        outline: none;
         cursor: pointer;
         transition: background 0.3s;
-        &:hover {
+        &:active {
           background: #3023ae;
         }
       }
@@ -80,10 +81,51 @@
         font-size: 1.2rem;
         font-weight: bold;
         appearance: none;
+        outline: none;
         cursor: pointer;
         transition: background 0.3s;
-        &:hover {
+        &:active {
           background: #3023ae;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .output{
+      flex-direction: column;
+      padding: 1rem;
+      .input-group{
+        flex-direction: column;
+        width: 100%;
+        .value,
+        button {
+          margin-top: .5rem;
+          border-radius: 2px;
+        }
+        .value{
+          font-size: 1.125rem;
+        }
+      }
+    }
+    .size{
+      flex-direction: column;
+      margin-top: 0;
+      padding: 1rem;
+      .wrapper{
+        display: grid;
+        grid-template: 1fr 1fr / 1fr 1fr;
+        margin-top: .5rem;
+        width: 100%;
+        .input-group{
+          margin: 0;
+          input{
+            font-size: 1.125rem;
+          }
+        }
+        button{
+          grid-column: span 2;
+          margin-top: .3rem;
         }
       }
     }

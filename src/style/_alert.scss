@@ -15,6 +15,7 @@
     color: #67c23a;
     font-size: 1.3rem;
     font-family: Ubuntu Mono, monospace;
+    white-space: nowrap;
     transition: opacity .4s, top .6s;
     &.visible {
       top: 7rem;

@@ -6,6 +6,10 @@
   width: 50vmin;
   height: 50vmin;
   border: 2px dashed rgba(255, 255, 255, 0.4);
+  @media screen and (max-width: 767px) {
+    width: 70vmin;
+    height: 70vmin;
+  }
   .shape {
     position: relative;
     width: 100%;
@@ -32,27 +36,6 @@
     width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
-
-    &#top {
-      top: 0;
-      left: 0;
-      transform: translate(-50%, calc(-50% - 10px));
-    }
-    &#right {
-      top: 0;
-      left: 100%;
-      transform: translate(calc(-50% + 10px), -50%);
-    }
-    &#bottom {
-      top: 100%;
-      left: 100%;
-      transform: translate(-50%, calc(-50% + 10px));
-    }
-    &#left {
-      top: 100%;
-      left: 0;
-      transform: translate(calc(-50% - 10px), -50%);
-    }
 
     &#topX {
       top: 0;
