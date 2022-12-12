@@ -21,21 +21,36 @@ export default class Movable {
 
     this.initPosition(initPosition)
     this.onChange(this.element.id, this.offset)
+
     this.element.addEventListener('mousedown', this.onMousedown)
+    this.element.addEventListener('touchstart', this.onMousedown)
   }
 
-  onMousedown = (e: MouseEvent) => {
+  onMousedown = (e: MouseEvent | TouchEvent) => {
     e.preventDefault()
 
     this.element.classList.add('active')
 
-    document.addEventListener('mousemove', this.onMove)
+    document.addEventListener('mousemove', this.onMove, { passive: true })
     document.addEventListener('mouseup', this.onEnd)
+
+    document.addEventListener('touchmove', this.onMove, { passive: true })
+    document.addEventListener('touchend', this.onEnd)
   }
   
-  onMove = (e: MouseEvent) => {
-    this.setPosition(e.clientX, e.clientY)
+  onMove = (e: MouseEvent | TouchEvent) => {
+    let clientX: number
+    let clientY: number
 
+    if (e instanceof TouchEvent) {
+      clientX = e.changedTouches[0].clientX
+      clientY = e.changedTouches[0].clientY
+    } else {
+      clientX = e.clientX
+      clientY = e.clientY
+    }
+
+    this.setPosition(clientX, clientY)
     this.onChange(this.element.id, this.offset)
   }
 
@@ -46,6 +61,9 @@ export default class Movable {
 
     document.removeEventListener('mousemove', this.onMove)
     document.removeEventListener('mouseup', this.onEnd)
+
+    document.removeEventListener('touchmove', this.onMove)
+    document.removeEventListener('touchend', this.onEnd)
   }
 
   setPosition(offsetX: number, offsetY: number) {
