@@ -14,4 +14,4 @@ The border-radius property can have multiple values changed. Preview how the sha
 
 - [x] You can copy the resulting CSS to the clipboard
 
-- [ ] You can use it in a PC or a mobile device
+- [x] You can use it in a PC or a mobile device
